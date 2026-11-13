@@ -120,6 +120,22 @@ nav .btn{min-height:40px;padding:.6em 1.3em;font-size:.7rem}
 .steps p{max-width:44ch;opacity:.8}
 @media(max-width:860px){.ritual{grid-template-columns:1fr}.ritual .sticky{position:static}.steps li{padding-left:70px}}
 
+/* gallery */
+.gal{padding:clamp(70px,10vw,140px) var(--gut);display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,2vw,28px);align-items:end;background:var(--blush)}
+.g-text{grid-column:1/6;align-self:center}
+.g-text h2{font-size:var(--fs-h2);line-height:.98;letter-spacing:-.02em;margin-top:14px}
+.g-text h2 em{color:var(--rose)}
+.g{overflow:hidden;position:relative}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease)}
+@media(hover:hover){.g:hover img{transform:scale(1.07)}}
+.g.a{grid-column:6/9;aspect-ratio:3/4.4;border-radius:999px 999px 18px 18px}
+.g.b{grid-column:9/13;aspect-ratio:3/4;border-radius:18px;align-self:start;margin-top:40px}
+.g.c{grid-column:2/6;aspect-ratio:4/3.4;border-radius:18px 18px 18px 160px}
+.g.d{grid-column:6/10;aspect-ratio:1;border-radius:50%}
+@media(max-width:860px){.g-text{grid-column:1/13}.g.a{grid-column:1/7}.g.b{grid-column:7/13;margin-top:0}.g.c{grid-column:1/13;aspect-ratio:4/3}.g.d{grid-column:3/11}}
+.bridal .bphoto{position:absolute;right:var(--gut);top:clamp(60px,9vw,120px);width:min(26vw,340px);aspect-ratio:3/4.2;border-radius:999px 999px 18px 18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(90,31,43,.5)}
+.bridal .bphoto img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.bridal .bphoto{position:static;width:min(70%,300px);margin:28px 0 0}}
 /* bridal ladder */
 .bridal{background:#f1d9d3;padding:clamp(80px,12vw,160px) var(--gut);position:relative;overflow:hidden}
 .bridal h2{font-size:var(--fs-h2);line-height:.98;letter-spacing:-.02em;max-width:14ch}
@@ -223,6 +239,14 @@ footer .row2{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="rows" id="rows" role="tabpanel" aria-live="polite"></div>
 </section>
 
+<section class="gal" aria-label="Moods">
+  <div class="g-text rv"><p class="eyebrow"><b>Moods</b> — Care, colour, glow</p><h2>Little rituals, <em>done well.</em></h2></div>
+  <figure class="g a rv"><img src="img/powder.jpg" alt="Makeup brush in a burst of coral powder" loading="lazy"></figure>
+  <figure class="g b rv"><img src="img/facial.jpg" alt="Woman relaxing with a cucumber slice during a facial" loading="lazy"></figure>
+  <figure class="g c rv"><img src="img/hair.jpg" alt="Hair being trimmed with scissors" loading="lazy"></figure>
+  <figure class="g d rv"><img src="img/flat.jpg" alt="Makeup brushes, lipstick and compact" loading="lazy"></figure>
+</section>
+
 <section class="ritual" id="visit">
   <div class="sticky rv">
     <p class="eyebrow"><b>02</b> — How a visit goes</p>
@@ -239,6 +263,7 @@ footer .row2{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <section class="bridal" id="bridal">
   <p class="eyebrow rv"><b>03</b> — Bridal</p>
   <h2 class="rv" style="margin-top:14px">Three steps to <em>the day.</em></h2>
+  <div class="bphoto rv"><img src="img/bride.jpg" alt="Bride in red with gold jewellery" loading="lazy"></div>
   <div class="ladder">
     <div class="step rv"><span class="tag">Before</span><h3>Pre-bridal</h3><p>Skin and hair prep in the weeks before, so the day itself is easy.</p><a href="https://wa.me/919654111462?text=Hi%20Kalindi%2C%20please%20share%20pre-bridal%20details." target="_blank" rel="noopener">Ask for details</a></div>
     <div class="step rv"><span class="tag">The day</span><h3>Bridal look</h3><p>Makeup and hair for the ceremony, planned with you well ahead.</p><a href="https://wa.me/919654111462?text=Hi%20Kalindi%2C%20please%20share%20bridal%20package%20details." target="_blank" rel="noopener">Ask for details</a></div>
