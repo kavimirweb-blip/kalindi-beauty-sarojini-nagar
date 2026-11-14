@@ -16,7 +16,7 @@
  Personality: warm, soft, ritual.
  One idea: getting ready as a ritual. A veil lifts, and the whole page takes the colour of the occasion.
  Direction: Soft clinical / immersive, type-led (no photos supplied).
- Signature moment: the occasion switcher re-tints the entire page; a lipstick rises in the hero as you scroll. */
+ Signature moment: the occasion switcher re-tints the entire page; a real lipstick photo sits in the hero mirror. */
 :root{
   --blush:#f6e7e2; --petal:#edcfc8; --rose:#c9737c; --wine:#5a1f2b; --ink:#2a1216; --gold:#b98a4b;
   --tint:var(--blush); --tint-ink:var(--ink); --tint-accent:var(--rose);
@@ -78,8 +78,11 @@ nav .btn{min-height:40px;padding:.6em 1.3em;font-size:.7rem}
 .glass{position:absolute;padding:12px 18px;border-radius:18px;background:rgba(255,255,255,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.7);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 18px 50px -20px rgba(90,31,43,.35)}
 .glass b{display:block;font-family:var(--serif);font-size:1.25rem;letter-spacing:0;text-transform:none;font-weight:500;font-style:italic}
 .g1{left:-10%;top:18%}.g2{right:-6%;top:46%}.g3{left:2%;bottom:4%}
-#lip{transition:transform .2s linear}
-@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:104px}.mirror{width:min(78%,340px)}.g1{left:-4%}.g2{right:-4%}}
+.mphoto{position:absolute;left:5.4%;right:5.4%;top:5.2%;bottom:3.4%;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.mphoto img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.04);transition:transform 1.6s var(--ease)}
+.mirror:hover .mphoto img{transform:scale(1.1)}
+.mframe{position:absolute;inset:0;pointer-events:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:104px}.mirror{width:min(78%,340px)}.g1,.g2{display:none}.g3{left:50%;transform:translateX(-50%);bottom:-18px;white-space:nowrap;padding:8px 16px}}
 
 /* marquee */
 .marq{background:var(--wine);color:var(--blush);padding:22px 0;overflow:hidden;white-space:nowrap}
@@ -133,9 +136,10 @@ nav .btn{min-height:40px;padding:.6em 1.3em;font-size:.7rem}
 .g.c{grid-column:2/6;aspect-ratio:4/3.4;border-radius:18px 18px 18px 160px}
 .g.d{grid-column:6/10;aspect-ratio:1;border-radius:50%}
 @media(max-width:860px){.g-text{grid-column:1/13}.g.a{grid-column:1/7}.g.b{grid-column:7/13;margin-top:0}.g.c{grid-column:1/13;aspect-ratio:4/3}.g.d{grid-column:3/11}}
-.bridal .bphoto{position:absolute;right:var(--gut);top:clamp(60px,9vw,120px);width:min(26vw,340px);aspect-ratio:3/4.2;border-radius:999px 999px 18px 18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(90,31,43,.5)}
+.bridal .bhead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.bridal .bphoto{flex:0 0 auto;width:min(24vw,300px);aspect-ratio:3/4;border-radius:999px 999px 18px 18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(90,31,43,.5)}
 .bridal .bphoto img{width:100%;height:100%;object-fit:cover}
-@media(max-width:860px){.bridal .bphoto{position:static;width:min(70%,300px);margin:28px 0 0}}
+@media(max-width:860px){.bridal .bhead{flex-direction:column;align-items:flex-start;gap:28px}.bridal .bphoto{width:min(70%,300px)}}
 /* bridal ladder */
 .bridal{background:#f1d9d3;padding:clamp(80px,12vw,160px) var(--gut);position:relative;overflow:hidden}
 .bridal h2{font-size:var(--fs-h2);line-height:.98;letter-spacing:-.02em;max-width:14ch}
@@ -202,23 +206,9 @@ footer .row2{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </div>
   </div>
   <div class="mirror" aria-hidden="true">
-    <svg viewBox="0 0 400 560">
-      <defs>
-        <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbeeea"/><stop offset="1" stop-color="#e9b9b4"/></linearGradient>
-        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6c48b"/><stop offset=".5" stop-color="#b98a4b"/><stop offset="1" stop-color="#7a5524"/></linearGradient>
-        <linearGradient id="tube" x1="0" x2="1"><stop offset="0" stop-color="#7a5524"/><stop offset=".45" stop-color="#e6c48b"/><stop offset="1" stop-color="#7a5524"/></linearGradient>
-        <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
-      </defs>
-      <path d="M30 540V190a170 170 0 0 1 340 0v350z" fill="none" stroke="url(#gold)" stroke-width="10"/>
-      <path d="M46 530V192a154 154 0 0 1 308 0v338z" fill="url(#gl)"/>
-      <path d="M46 530V192a154 154 0 0 1 308 0v338z" fill="url(#shine)"/>
-      <g id="lip">
-        <rect x="170" y="330" width="60" height="150" rx="6" fill="url(#tube)"/>
-        <rect x="170" y="318" width="60" height="22" fill="#2a1216"/>
-        <g id="stick"><path d="M176 318V258c0-14 10-24 24-30 14 6 24 16 24 30v60z" fill="#8f2b3c"/><path d="M176 258c0-14 10-24 24-30l-6 40z" fill="#c9737c" opacity=".6"/></g>
-      </g>
-      <circle cx="108" cy="150" r="3" fill="#b98a4b"/><circle cx="296" cy="112" r="2" fill="#b98a4b"/><circle cx="270" cy="200" r="2.5" fill="#fff"/>
-    </svg>
+    <div class="mphoto"><img src="img/lipstick.jpg" alt="Red lipstick with a gold band, in its tube" fetchpriority="high"></div>
+    <svg viewBox="0 0 400 560" class="mframe"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6c48b"/><stop offset=".5" stop-color="#b98a4b"/><stop offset="1" stop-color="#7a5524"/></linearGradient></defs>
+      <path d="M30 540V190a170 170 0 0 1 340 0v350z" fill="none" stroke="url(#gold)" stroke-width="10"/></svg>
     <div class="glass g1"><b>Facials</b>Glow, deep clean</div>
     <div class="glass g2"><b>Hair</b>Cut, colour, care</div>
     <div class="glass g3"><b>Bridal</b>Your big day</div>
@@ -261,9 +251,11 @@ footer .row2{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 </section>
 
 <section class="bridal" id="bridal">
-  <p class="eyebrow rv"><b>03</b> — Bridal</p>
-  <h2 class="rv" style="margin-top:14px">Three steps to <em>the day.</em></h2>
-  <div class="bphoto rv"><img src="img/bride.jpg" alt="Bride in red with gold jewellery" loading="lazy"></div>
+  <div class="bhead">
+    <div><p class="eyebrow rv"><b>03</b> — Bridal</p>
+    <h2 class="rv" style="margin-top:14px">Three steps to <em>the day.</em></h2></div>
+    <div class="bphoto rv"><img src="img/bride.jpg" alt="Bride in red with gold jewellery" loading="lazy"></div>
+  </div>
   <div class="ladder">
     <div class="step rv"><span class="tag">Before</span><h3>Pre-bridal</h3><p>Skin and hair prep in the weeks before, so the day itself is easy.</p><a href="https://wa.me/919654111462?text=Hi%20Kalindi%2C%20please%20share%20pre-bridal%20details." target="_blank" rel="noopener">Ask for details</a></div>
     <div class="step rv"><span class="tag">The day</span><h3>Bridal look</h3><p>Makeup and hair for the ceremony, planned with you well ahead.</p><a href="https://wa.me/919654111462?text=Hi%20Kalindi%2C%20please%20share%20bridal%20package%20details." target="_blank" rel="noopener">Ask for details</a></div>
@@ -324,9 +316,6 @@ footer .row2{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   // reveal
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-  // lipstick rises with scroll
-  var stick=document.getElementById('stick');
-  if(!reduce){addEventListener('scroll',function(){var y=Math.min(scrollY,500);stick.style.transform='translateY('+(-y*0.08)+'px)'},{passive:true});stick.style.transform='translateY(40px)';setTimeout(function(){stick.style.transition='transform 1.6s cubic-bezier(.22,.8,.24,1)';stick.style.transform='translateY(0)';setTimeout(function(){stick.style.transition='none'},1700)},2400)}
 })();
 </script>
 </body>
